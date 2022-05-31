@@ -67,3 +67,85 @@ body {
     background: #00AFE4;
     transform: rotate(275deg) skew(10deg);
 }
+.spicchio > a {
+    display: block;
+    position: absolute;
+    height: 200px;
+    width: 200px;
+    transform: skew(-10deg) rotate(-70deg) scale(1);
+    border-radius: 50%;
+    text-align: center;
+    padding-top: 2em;    
+    font-size: 1.2em;    
+    bottom: -100px;
+    right: -100px;
+    text-decoration: none;
+    background-color: black;    
+    color: white;
+}
+.bar {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    background-color: black;
+    z-index: 10;
+}
+.bar--horizontal {
+    width: 95%;
+    height: 40px;
+}
+.bar--vertical {
+    width: 40px;
+    height: 95%;
+}
+.spicchio.active {
+    background: white;
+}
+#game-display {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    width: 130px;
+    height: 100px;
+    top: 50%;
+    left: 50%;
+    transform: translate( -50%, -50%);
+    background-color: black;
+    z-index: 11;
+    font-family: 'Courier Prime', sans-serif;
+    font-size: 30px;
+    text-align: center;
+}
+
+#label {
+    color: white; }
+
+.fall {
+    transform: translateY(1200px);
+}
+
+header,
+footer {
+    padding: 20px;
+}
+
+@keyframes rotate {
+    0,
+    100% {
+        transform: rotate(0deg);
+    }
+
+    25% {
+        transform: rotate(360deg);
+    }
+
+    50% {
+        transform: rotate(0deg);
+    }
+
+    75% {
+        transform: rotate(360deg);
+    }
+} 
