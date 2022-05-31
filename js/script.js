@@ -19,10 +19,10 @@ if (!numeriDaScoprire.includes(numeroRandom)) {
 
 console.log(numeriDaScoprire);
 
-function funzioneAlert() {
-    alert('Sbrigati,memorizza questi numeri, hai poco tempo! \nHai 30 secondi:' + '\n' + numeriDaScoprire);
 
-setTimeout(funzioneAlert,5000); }
+
+setTimeout(function funzioneAlert() {
+    alert('Sbrigati,memorizza questi numeri, hai poco tempo! \nHai 30 secondi:' + '\n' + numeriDaScoprire)},5000); 
 
 
 let numeriUtente =[];
@@ -48,4 +48,4 @@ if (numeriUtente.length == 0) {
     console.log('Hai indovinato ' + numeriUtente.length + ' numeri e sono: ' + numeriUtente);
 }
 }
-, 5000);
+, 4000);
