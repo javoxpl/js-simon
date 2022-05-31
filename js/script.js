@@ -8,7 +8,7 @@ Dopo che sono stati inseriti i 5 numeri, il software dice quanti e quali dei num
 
 
 /*generatore dei numeri random*/
-var numeriDaScoprire = [];
+let numeriDaScoprire = [];
 
 while (numeriDaScoprire.length < 5) {
   var numeroRandom = Math.floor(Math.random() * (100 - 1 + 1) ) + 1;
@@ -19,6 +19,31 @@ if (!numeriDaScoprire.includes(numeroRandom)) {
 
 console.log(numeriDaScoprire);
 
-/*l'alert*/
-alert('Sbrigati,memorizza questi numeri, hai poco tempo! \nHai 30 secondi:' + '\n' + numeriDaScoprire);
+function funzioneAlert() {
+    alert('Sbrigati,memorizza questi numeri, hai poco tempo! \nHai 30 secondi:' + '\n' + numeriDaScoprire);
 
+setTimeout(funzioneAlert,5000); }
+
+
+let numeriUtente =[];
+
+setTimeout(function richiesta() {
+    for (var i = 0; i < 5; i++) {
+        let chiediNumero = parseInt(prompt('Inserisci un numero!'));
+        
+        numeriUtente.push(chiediNumero);
+        
+    } 
+}, 5000 );
+
+console.log(numeriUtente);
+
+if (numeriUtente.length == 0) {
+    console.log('non hai indovinato nessun numero')
+} else if (numeriUtente.length == 1) {
+    console.log('Hai indovinato solo un numero, il: ' + numeriUtente)
+} else if (numeriUtente.length == 5) {
+    console.log('hai indovinato tutti i numeri: ' + numeriUtente)
+} else {
+    console.log('Hai indovinato ' + numeriUtente.length + ' numeri e sono: ' + numeriUtente);
+};
