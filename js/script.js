@@ -30,20 +30,22 @@ let numeriUtente =[];
 setTimeout(function richiesta() {
     for (var i = 0; i < 5; i++) {
         let chiediNumero = parseInt(prompt('Inserisci un numero!'));
-        
-        numeriUtente.push(chiediNumero);
-        
+        if (!numeriUtente.includes(chiediNumero) && numeriDaScoprire.includes(chiediNumero)) {
+            numeriUtente.push(chiediNumero);
+        }
     } 
-}, 5000 );
+;
 
 console.log(numeriUtente);
 
 if (numeriUtente.length == 0) {
     console.log('non hai indovinato nessun numero')
 } else if (numeriUtente.length == 1) {
-    console.log('Hai indovinato solo un numero, il: ' + numeriUtente)
+    console.log('Hai indovinato solo un numero, il numero: ' + numeriUtente)
 } else if (numeriUtente.length == 5) {
     console.log('hai indovinato tutti i numeri: ' + numeriUtente)
 } else {
     console.log('Hai indovinato ' + numeriUtente.length + ' numeri e sono: ' + numeriUtente);
-};
+}
+}
+, 5000);
