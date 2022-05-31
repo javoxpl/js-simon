@@ -78,7 +78,7 @@ function flash(ref, level, array = [], combination = [], listening = false){
             } else {
                 label('YOU LOSE');
                 document.getElementById('circle-back').classList.add('fall');
-                console.log('hai perso hahahahahha!');
+                console.log('hai perso');
             }
         }
     }
