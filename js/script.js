@@ -6,46 +6,83 @@ L’utente deve inserire, uno alla volta, i numeri che ha visto precedentemente,
 Dopo che sono stati inseriti i 5 numeri, il software dice quanti e quali dei numeri da indovinare sono stati individuati.*/
 
 
+let divElements = document.getElementById("number");
+let click = document.getElementById("myButton");
+let resulte = document.getElementById("risultato");
+let divTime = document.getElementById("time");
+divTime.classList.add("center");
+let numbers = [];
+let time = 30;
 
-/*generatore dei numeri random*/
-let numeriDaScoprire = [];
+click.addEventListener("click",
 
-while (numeriDaScoprire.length < 5) {
-  var numeroRandom = Math.floor(Math.random() * (100 - 1 + 1) ) + 1;
-if (!numeriDaScoprire.includes(numeroRandom)) {
-    numeriDaScoprire.push(numeroRandom);
-}
-}
-
-console.log(numeriDaScoprire);
-
-
-
-setTimeout(function funzioneAlert() {
-    alert('Sbrigati,memorizza questi numeri, hai poco tempo! \nHai 30 secondi:' + '\n' + numeriDaScoprire)},5000); 
-
-
-let numeriUtente =[];
-
-setTimeout(function richiesta() {
-    for (var i = 0; i < 5; i++) {
-        let chiediNumero = parseInt(prompt('Inserisci un numero!'));
-        if (!numeriUtente.includes(chiediNumero) && numeriDaScoprire.includes(chiediNumero)) {
-            numeriUtente.push(chiediNumero);
+    function(){
+        for (let i = 0; i < 5; i ++){
+            let number = Math.floor(Math.random() * 100) + 1;
+            numbers.push(number);
+            divElements.innerHTML += " " + number + " ";
         }
-    } 
-;
+        console.log(numbers);
 
-console.log(numeriUtente);
+        setInterval(function (){
+            if (time === 0){
+                clearInterval(time);
+                divElements.innerHTML = "Tempo finito";          
+                divTime.innerHTML = " ";   
+            } else {
+                time--;
+                divTime.innerHTML = "Hai " + time + " secondi per memorizzarli";
+            }
+        }
+    , 1000)
 
-if (numeriUtente.length == 0) {
-    console.log('non hai indovinato nessun numero')
-} else if (numeriUtente.length == 1) {
-    console.log('Hai indovinato solo un numero, il numero: ' + numeriUtente)
-} else if (numeriUtente.length == 5) {
-    console.log('hai indovinato tutti i numeri: ' + numeriUtente)
-} else {
-    console.log('Hai indovinato ' + numeriUtente.length + ' numeri e sono: ' + numeriUtente);
-}
-}
-, 4000);
+    let endtime = setInterval(
+        function(){
+            let numbUser;
+            let count = 0;
+            let i = 0
+            alert("ti ricordi i numeri? (Clicca 'chiudi')");
+            while (i < 5){
+                numbUser = parseInt(prompt("inserisci un numero"));
+                console.log(numbUser);
+            
+                if(numbers.includes(numbUser)){
+                    count++;
+            }
+    
+            i++;
+            }
+            clearInterval(endtime);
+            console.log("Hai indovinato: " + count + " numeri");
+            switch (count){
+    
+                case 5:
+                resulte.innerHTML = "Hai indovinato tutti e " + count + " i numeri";
+                break;
+    
+                case 4:
+                resulte.innerHTML = "Hai indovinato " + count + " numeri";
+                break;
+    
+                case 3:
+                resulte.innerHTML = "Hai indovinato " + count + " numeri";
+                break;
+    
+                case 2:
+                resulte.innerHTML = "Hai indovinato " + count + " numeri";
+                break;
+    
+                case 1:
+                resulte.innerHTML = "hai indovinato solo un  " + count + " numero";
+                break;
+    
+                case 0:
+                resulte.innerHTML = "non hai indovinato nulla";
+                break;
+            }
+        }
+    , 12000)
+    }
+)
+
+

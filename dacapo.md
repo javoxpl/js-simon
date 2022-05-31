@@ -1,0 +1,1 @@
+i numeri dovevavno essere stampati in html, io li ho stampati con un allert, ricomincio l'esercizio
